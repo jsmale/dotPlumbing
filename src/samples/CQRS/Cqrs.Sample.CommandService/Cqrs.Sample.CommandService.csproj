@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB0AA823-EF0B-40E5-AD96-53D910038670}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cqrs.Sample.CommandService</RootNamespace>
+    <AssemblyName>Cqrs.Sample.CommandService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EventStore">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Core">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Persistence.SqlPersistence">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Persistence.SqlPersistence.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization.Json">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization.Json.Wireup">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Serialization.Json.Wireup.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Wireup">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Wireup.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\lib\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\lib\EventStore\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\..\lib\NServiceBus\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\..\lib\NServiceBus\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\..\..\..\lib\NServiceBus\NServiceBus.Host.exe</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.StructureMap262">
+      <HintPath>..\..\..\..\lib\NServiceBus\containers\structuremap262\NServiceBus.ObjectBuilder.StructureMap262.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\..\lib\structuremap\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainRepository.cs" />
+    <Compile Include="EndpointConfig.cs" />
+    <Compile Include="EventStore.cs" />
+    <Compile Include="Handlers\LogOnCommandHandler.cs" />
+    <Compile Include="Handlers\RegisterUserCommandHandler.cs" />
+    <Compile Include="Infrastructure\CommandInitializer.cs" />
+    <Compile Include="Infrastructure\CommandRegistry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\app\Plumbing.Log4net\Plumbing.Log4net.csproj">
+      <Project>{F2114974-D030-48BC-9627-CCBFEB2309F3}</Project>
+      <Name>Plumbing.Log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Plumbing.StructureMap\Plumbing.StructureMap.csproj">
+      <Project>{6501CE6B-01B5-49CC-9964-3069694841A5}</Project>
+      <Name>Plumbing.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\app\Plumbing.Core\Plumbing.Core.csproj">
+      <Project>{E58E4879-6F57-4F46-92D7-D2E88048AAB3}</Project>
+      <Name>Plumbing.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cqrs.Sample.Commands\Cqrs.Sample.Commands.csproj">
+      <Project>{FFAB21E1-A5DC-440C-971A-2F73EC0BC0FC}</Project>
+      <Name>Cqrs.Sample.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cqrs.Sample.Common\Cqrs.Sample.Common.csproj">
+      <Project>{281A379D-D23D-4790-908D-1EE74BA7D08F}</Project>
+      <Name>Cqrs.Sample.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cqrs.Sample.Domain\Cqrs.Sample.Domain.csproj">
+      <Project>{E20A9B65-9034-46B8-96B9-EA23387A7B2E}</Project>
+      <Name>Cqrs.Sample.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cqrs.Sample.Events\Cqrs.Sample.Events.csproj">
+      <Project>{1F92325A-BCAA-4F67-9DC1-687CC866009C}</Project>
+      <Name>Cqrs.Sample.Events</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

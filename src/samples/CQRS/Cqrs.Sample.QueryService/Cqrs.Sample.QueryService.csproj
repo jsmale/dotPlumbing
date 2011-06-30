@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD48454E-16FD-4536-BB7D-7F720B136B59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cqrs.Sample.QueryService</RootNamespace>
+    <AssemblyName>Cqrs.Sample.QueryService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\packages\EntityFramework.4.1.10311.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Core">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Persistence.SqlPersistence">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Persistence.SqlPersistence.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization.Json">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization.Json.Wireup">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Serialization.Json.Wireup.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Wireup">
+      <HintPath>..\..\..\..\lib\EventStore\EventStore.Wireup.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\lib\EventStore\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\..\lib\NServiceBus\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\..\lib\NServiceBus\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\..\..\..\lib\NServiceBus\NServiceBus.Host.exe</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.StructureMap262">
+      <HintPath>..\..\..\..\lib\NServiceBus\containers\structuremap262\NServiceBus.ObjectBuilder.StructureMap262.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\..\..\lib\structuremap\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EndpointConfig.cs" />
+    <Compile Include="Handlers\UserRegisteredEventHandler.cs" />
+    <Compile Include="Infrastructure\QueryServiceInitializer.cs" />
+    <Compile Include="Infrastructure\QueryServiceRegistry.cs" />
+    <Compile Include="Infrastructure\RecreateViewModelsFromEvents.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\app\Plumbing.Core\Plumbing.Core.csproj">
+      <Project>{E58E4879-6F57-4F46-92D7-D2E88048AAB3}</Project>
+      <Name>Plumbing.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cqrs.Sample.Common\Cqrs.Sample.Common.csproj">
+      <Project>{281A379D-D23D-4790-908D-1EE74BA7D08F}</Project>
+      <Name>Cqrs.Sample.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cqrs.Sample.Events\Cqrs.Sample.Events.csproj">
+      <Project>{1F92325A-BCAA-4F67-9DC1-687CC866009C}</Project>
+      <Name>Cqrs.Sample.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cqrs.Sample.ViewModels\Cqrs.Sample.ViewModels.csproj">
+      <Project>{6209A515-63F1-40ED-8304-4F8AF3B8657D}</Project>
+      <Name>Cqrs.Sample.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

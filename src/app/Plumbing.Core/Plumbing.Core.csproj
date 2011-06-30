@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E58E4879-6F57-4F46-92D7-D2E88048AAB3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Plumbing</RootNamespace>
+    <AssemblyName>Plumbing.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Cache\InMemoryCache.cs" />
+    <Compile Include="Container\IContainer.cs" />
+    <Compile Include="Container\IoC.cs" />
+    <Compile Include="DataAccess\DataAccessContext.cs" />
+    <Compile Include="DataAccess\DisposeCurrentDataContext.cs" />
+    <Compile Include="DataAccess\EntityFrameworkDataContext.cs" />
+    <Compile Include="DataAccess\IDisposeCurrentDataContext.cs" />
+    <Compile Include="DataAccess\PagedList.cs" />
+    <Compile Include="Extensions\DateHelpers.cs" />
+    <Compile Include="Extensions\DynamicQueryable.cs" />
+    <Compile Include="DataAccess\IDataAccessContext.cs" />
+    <Compile Include="DataAccess\IDataContext.cs" />
+    <Compile Include="DataAccess\IRepository.cs" />
+    <Compile Include="DataAccess\LinqDataContext.cs" />
+    <Compile Include="DataAccess\Repository.cs" />
+    <Compile Include="Domain\IEntity.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\GuidHelpers.cs" />
+    <Compile Include="Extensions\RegExHelpers.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Initialization\IInitializer.cs" />
+    <Compile Include="Initialization\Initializer.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
+    <Compile Include="Security\PasswordHandler.cs" />
+    <Compile Include="Utility\BaseMapper.cs" />
+    <Compile Include="Utility\DateTimeService.cs" />
+    <Compile Include="Utility\GuidCombGenerator.cs" />
+    <Compile Include="Utility\IDateTimeService.cs" />
+    <Compile Include="Utility\IMapper.cs" />
+    <Compile Include="Utility\TextReaderEnumerable.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
