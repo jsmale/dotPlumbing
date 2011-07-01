@@ -17,7 +17,7 @@ namespace Cqrs.Sample.QueryService.Handlers
 
         public void Handle(UserRegisteredEvent message)
         {
-            repository.Insert(new User(message.Id, message.UserName, message.Email));
+            repository.Insert(new User(message.Id, message.UserName, message.Email, message.PasswordHash));
             repository.SubmitChanges();
         }
     }
